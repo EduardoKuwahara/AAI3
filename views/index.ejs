@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefas</title>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    <ul>
+        <% tarefas.forEach((tarefa, index) => { %>
+            <li>
+                <%= tarefa.nome %> | Status: <%= tarefa.status ? 'Concluída' : 'Pendente' %>
+                <a href="/tarefa/<%= index %>/editar">Editar</a> |
+                <form action="/tarefa/<%= index %>/excluir" method="post" style="display:inline;">
+                    <button type="submit">Excluir</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+    
+    <a href="/tarefa/nova">Adicionar Tarefa</a><br>
+    <a href="/tarefas/true">Ver Tarefas Concluídas</a><br>
+    <a href="/tarefas/false">Ver Tarefas Pendentes</a>
+</body>
+</html>
