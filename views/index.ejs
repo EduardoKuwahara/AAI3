@@ -3,10 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarefas</title>
+    <title>Lista de Tarefas</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var erro = "<%= erro ? erro : '' %>";
+            if (erro) {
+                alert(erro);
+            }
+        });
+    </script>
 </head>
 <body>
     <h1>Lista de Tarefas</h1>
+    <div>
+        <a href="/">Todas as Tarefas</a>
+        <a href="/tarefas/true">Tarefas Concluídas</a>
+        <a href="/tarefas/false">Tarefas Pendentes</a>
+    </div>
     <ul>
         <% tarefas.forEach((tarefa, index) => { %>
             <li>
@@ -18,9 +31,6 @@
             </li>
         <% }) %>
     </ul>
-    
-    <a href="/tarefa/nova">Adicionar Tarefa</a><br>
-    <a href="/tarefas/true">Ver Tarefas Concluídas</a><br>
-    <a href="/tarefas/false">Ver Tarefas Pendentes</a>
+    <a href="/tarefa/nova">Adicionar Tarefa</a>
 </body>
 </html>
