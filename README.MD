@@ -54,18 +54,43 @@
 
 <details>
   <summary><b>Clique aqui</b></summary>
+Aqui está uma breve descrição do que cada rota faz no código fornecido:
 
-  1. Ainda dentro do ambiente virtual e dentro da pasta src, execute o seguinte comando:
-  ```
-  flask run
-  ```
+Rota GET /:
 
-  2. Por fim, entre no link que aparecerá no cmd copiando e colando ele no seu navegador de preferência, ou então simplesmente clique aqui: <a href="http://127.0.0.1:5000">http://127.0.0.1:5000</a>
+Exibe a lista de tarefas na página principal e se tiver duplicação de tarefas retorna uma mensagem de erro.
 
-  3. Após finalizar o uso do nosso site, para sair do ambiente virtual, no terminal, execute o atalho `Ctrl+C` para finalizar o serviço do Flask, e então execute o seguinte comando:
-  ```
-  deactivate
-  ```
+Rota GET /tarefa/nova:
+
+Exibe o formulário para adicionar uma nova tarefa.
+
+Rota POST /tarefa:
+
+Recebe os dados do formulário e verificar se existe alguma tarefa com o mesmo nome, 
+caso isso ocorra ela redireciona o usuário para a página principal com uma mensagem de erro,
+se não adiciona a tarefa na lista de tarefas.
+
+Rota GET /tarefa/:id/editar:
+
+Exibe o formulário para editar uma tarefa existente, identificada pelo id,
+Se existir um nome duplicado, exibe a mensagem de erro, se tudo der certo,
+adiciona para lista principal e manda para a página principal.
+
+Rota POST /tarefa/:id/editar:
+
+Recebe os dados editados de uma tarefa e verifica se o novo nome já existe,
+Se já existir em outra tarefa, redireciona para a página de edição com uma mensagem de erro.
+
+Rota POST /tarefa/:id/excluir:
+
+Exclui uma tarefa da lista com base no id e redireciona para a página principal.
+
+Rota GET /tarefas/true:
+
+Filtra e exibe apenas as tarefas concluídas (com status = true).
+Rota GET /tarefas/false:
+
+Filtra e exibe apenas as tarefas pendentes (com status = false).
 
 </details>
 <br>
