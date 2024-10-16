@@ -27,7 +27,7 @@
 
   ```
   cd AAI3
-  npm init
+  npm init (confirme todas as perguntas)
   npm install express
   npm install express ejs body-parser method-override
   ```
@@ -45,6 +45,7 @@
   ```
   node app.js
   ```
+  Para acessar a aplicação basta colocar o seguinte link em seu navegador: http://localhost:3001
   Para fechar a aplicação, basta pressionar as teclas "Ctrl+C"
   </details>
   <br>
