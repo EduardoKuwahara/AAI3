@@ -8,7 +8,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var tarefas = [];
 
 app.get('/', function(req, res) {
-    res.render('index', { tarefas: tarefas });
+    const erro = req.query.erro; 
+    res.render('index', { tarefas: tarefas, erro: erro });
 });
 
 app.get('/tarefa/nova', function(req, res) {
@@ -21,18 +22,18 @@ app.post('/tarefa', function(req, res) {
     var tarefaExistente = tarefas.find(t => t.nome === novaTarefa.nome);
 
     if (tarefaExistente) {
-        return res.redirect('/?erro=Tarefa com esse nome já existe.'); 
+        return res.redirect('/?erro=Tarefa com esse nome já existe.');
     }
 
-    novaTarefa.status = req.body.tarefa.status ? true : false;
-
+    novaTarefa.status = novaTarefa.status ? true : false;
     tarefas.push(novaTarefa);
     res.redirect('/');
 });
 
 app.get('/tarefa/:id/editar', function(req, res) {
     var id = req.params.id;
-    res.render('edit', { tarefa: tarefas[id], id: id });
+    var erro = req.query.erro;
+    res.render('edit', { tarefa: tarefas[id], id: id, erro: erro });
 });
 
 app.post('/tarefa/:id/editar', function(req, res) {
